@@ -1,7 +1,7 @@
 const axios = require("axios");
 const fs = require('fs');
 const md5 = require('md5');
-module.exports = function (str, cbs, contain_dir) {
+module.exports = function (str, cbs, contain_dir, ext) {
     let counter = 0;
     let list = str.trim().split('\n').map(s => s.trim()).filter(a => (a.length && a.indexOf('http') === 0));
     list = [...new Set(list)];
@@ -9,7 +9,7 @@ module.exports = function (str, cbs, contain_dir) {
         getUrl(url);
     });
     function getUrl(url) {
-        let file = contain_dir + md5(url) + '.txt';
+        let file = contain_dir + md5(url) + '.' + ext;
         (async () => {
             let fails;
             let crs, skip = false;
