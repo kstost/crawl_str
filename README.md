@@ -24,5 +24,5 @@ https://archive.is/ALjBy
     complete: faillist => {
         console.log('complete');
     }
-}, './data/');
+}, './data/', 'html');
 ```
