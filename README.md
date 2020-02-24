@@ -17,8 +17,12 @@ https://archive.is/ALjBy
 https://archive.is/ALjBy
 
 
-`, () => {
-    console.log('Callback as complete');
+`, {
+    progress: (info, progress_ratio) => {
+        console.log('progress', info.url, progress_ratio);
+    },
+    complete: faillist => {
+        console.log('complete');
+    }
 }, './data/');
-
 ```
